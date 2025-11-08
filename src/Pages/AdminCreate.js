@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 
 const AdminCreate = (props) => {
   const setFilterData = props.setFilterData;
@@ -10,18 +11,33 @@ const AdminCreate = (props) => {
   });
 
   function changeHandler(e) {
-    const { name, value, checked, type } = e.target;
+    const { name, value, type } = e.target;
     setFormData((prevFormData) => {
-      return { ...prevFormData, [name]: type === "checkbox" ? checked : value };
+      return { ...prevFormData, [name]: type === "checkbox" ? e.target.checked : value };
     });
   }
-  function addHandler(){
-    setFilterData((prevData)=> [...prevData, {id: prevData.length + 1, title: formData.title, description: formData.description, image: formData.image, price: formData.price}])
+
+  function addHandler() {
+    setFilterData((prevData) => {
+      const newId = prevData.length > 0 ? Math.max(...prevData.map((p) => p.id)) + 1 : 1;
+      const newItem = {
+        id: newId,
+        title: formData.title,
+        description: formData.description,
+        image: formData.image,
+        price: formData.price,
+      };
+      return [...prevData, newItem];
+    });
+    // Go back to admin list after adding
+    props.history.push("/admin");
   }
+
   return (
-    <div>
+    <div className="admin-create">
       <label htmlFor="title">Title</label>
       <input
+        className="form-control"
         type="text"
         id="title"
         name="title"
@@ -31,6 +47,7 @@ const AdminCreate = (props) => {
 
       <label htmlFor="description">Description</label>
       <input
+        className="form-control"
         type="text"
         id="description"
         name="description"
@@ -40,6 +57,7 @@ const AdminCreate = (props) => {
 
       <label htmlFor="image">Image</label>
       <input
+        className="form-control"
         type="text"
         id="image"
         name="image"
@@ -49,6 +67,7 @@ const AdminCreate = (props) => {
 
       <label htmlFor="price">Price</label>
       <input
+        className="form-control"
         type="text"
         id="price"
         name="price"
@@ -56,9 +75,9 @@ const AdminCreate = (props) => {
         onChange={changeHandler}
       />
 
-      <button onClick={addHandler} className="btn">Add</button>
+      <button className="btn add-btn" onClick={addHandler}>Add</button>
     </div>
   );
 };
 
-export default AdminCreate;
+export default withRouter(AdminCreate);
