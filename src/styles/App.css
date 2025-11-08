@@ -1,1 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+.navbar{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    border: 1px solid black;
+    background-color: rgb(239, 235, 235);
+}
+
+.card{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(239, 235, 235);
+    border: 1px solid black;
+    padding: 10px;
+}
+.left{
+    width: 100px;
+    height: 100px;
+}
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.cardContainer{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    width: 50%;
+    margin: 10px auto;
+}
+.adminContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 50%;
+    margin: 10px auto;
+}
+.adminCard{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 149, 149);
+    color:white;
+}
+button{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
