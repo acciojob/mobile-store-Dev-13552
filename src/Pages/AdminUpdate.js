@@ -81,8 +81,8 @@ const AdminUpdate = (props) => {
         onChange={changeHandler}
       />
 
-      <button onClick={deleteHandler}>Delete</button>
-      <button onClick={saveHandler}>Save</button>
+      <button onClick={deleteHandler} className="btn">Delete</button>
+      <button onClick={saveHandler} className="btn">Save</button>
     </div>
   );
 };

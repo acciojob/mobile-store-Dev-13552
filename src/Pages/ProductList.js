@@ -16,7 +16,7 @@ const Productlist = ({filterData, setFilterData}) => {
                     <div className='right-bottom'>
                         <p>{item.price}</p>
                         <Link to = {`/products/${item.id}`}>
-                            <button>Buy</button>
+                            <button className='btn'>Buy</button>
                         </Link>
                     </div>
                 </div>

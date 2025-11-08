@@ -22,7 +22,7 @@ const ProductDetails = (props) => {
                     <p>{item.description}</p>
                         <p>{item.price}</p>
                         <Link to = {`/`}>
-                            <button>Other Products</button>
+                            <button className='btn'>Other Products</button>
                         </Link>
                 </div>
             </div>

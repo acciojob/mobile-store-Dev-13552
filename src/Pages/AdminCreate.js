@@ -16,7 +16,7 @@ const AdminCreate = (props) => {
     });
   }
   function addHandler(){
-    setFilterData((prevData)=> [...prevData, {title: formData.title, description: formData.description, image: formData.image, price: formData.price}])
+    setFilterData((prevData)=> [...prevData, {id: prevData.length + 1, title: formData.title, description: formData.description, image: formData.image, price: formData.price}])
   }
   return (
     <div>
@@ -56,7 +56,7 @@ const AdminCreate = (props) => {
         onChange={changeHandler}
       />
 
-      <button onClick={addHandler}>Add</button>
+      <button onClick={addHandler} className="btn">Add</button>
     </div>
   );
 };
